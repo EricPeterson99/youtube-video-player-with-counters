@@ -2,11 +2,12 @@
 Python program that plays a YouTube video and allows the user to increment multiple counters. The counters a written to a csv file automatically
 
 ## Requirements
+- Python 3
 - opencv
 - VidGear https://abhitronix.github.io/vidgear/latest/
 
 ## Usage:
-To run, provide youtube video url as sys arg inclosed in quotes
+To run, provide the youtube video url as sys arg inclosed in quotes
 
 ```
 python3 videoCounterTest.py "<YOUTUBE_URL>"
