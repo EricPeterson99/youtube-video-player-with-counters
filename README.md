@@ -13,7 +13,7 @@ python3 videoCounterTest.py "<YOUTUBE_URL>"
 ```
 
 ## Output:
-The out of the counters is save to a VIDEO_ID.csv
+The output of each counter is saved to a VIDEO_ID.csv
 
 Where each column is:
 ```
