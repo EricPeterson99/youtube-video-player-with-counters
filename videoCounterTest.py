@@ -7,13 +7,13 @@ import csv
 from vidgear.gears import CamGear
 import cv2
 
-print("Line Coutner \nKey A - TSA Pre\nKey S - CLEAR\nKey D - Regular")
+print("Line Coutner \nKey A - TSA Pre (Z for luggage)\nKey S - CLEAR (X for luggage)\nKey D - Regular (C for luggage)")
 print("q - to quit | SPACE to pause")
 
 PLAYBACK_SPEED = int(input("Enter desired playback speed as an int: "))
 FPS = 30
 INTERVAL_TIME_MINS = 5
-line_counts = [0,0,0]
+line_counts = [0] * 6
 
 # Create Video Steam
 # Test link: https://www.youtube.com/watch?v=AnuGSFvKO80
@@ -27,6 +27,12 @@ def read_input(key):
         line_counts[1] += 1
     elif key == ord("d"):
         line_counts[2] += 1
+    elif key == ord("z"):
+        line_counts[3] += 1
+    elif key == ord("x"):
+        line_counts[4] += 1
+    elif key == ord("c"):
+        line_counts[5] += 1
     elif key == ord(" "):
         print("Paused, press enter to play")
         input()
@@ -35,7 +41,7 @@ def log_data(interval):
     print("Time: ",interval, "| Lanes", line_counts)
     with open(sys.argv[1][32:] + '.csv', mode='a') as line_file:
         line_writer = csv.writer(line_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        line_writer.writerow([interval, line_counts[0], line_counts[1], line_counts[2]])
+        line_writer.writerow([interval, line_counts[0], line_counts[3], line_counts[1], line_counts[4], line_counts[2], line_counts[5]])
 
 def main():
     cur_interval_frame_count = 0
